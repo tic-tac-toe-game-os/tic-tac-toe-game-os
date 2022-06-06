@@ -1,2 +1,7 @@
 # tic-tac-toe-game-os
-This repository was created for the OS discipline for a group tic-tac-toe game
+
+**Regras**
+
+- Não criar outro repositório, o repositório é este aqui: https://github.com/tic-tac-toe-game-os/tic-tac-toe-game-os
+- Obs*: Acordar padronização de código, e code review, se serão necessários e quem os farão;
+- Commits descrevendo a tarefas e as ações feitas.
