@@ -1,14 +1,16 @@
 #include <stdbool.h>
 
-typedef struct {
+typedef struct
+{
 	unsigned long PlayerID;
-	char Name[50];
+	char *Name;
 	bool Enabled;
-	char RegDate[8]; //aaaammdd
-	unsigned long overallScore;
+	char RegDate[8]; // aaaammdd
+	unsigned long OverAllScore;
 } Player_t;
 
-struct Game_T {
+typedef struct
+{
 	unsigned long GameId;
 	unsigned long PlayerID01;
 	unsigned long PlayerID02;
@@ -16,5 +18,17 @@ struct Game_T {
 	int Winner;
 	int Status;
 	struct Game_T *Next;
-};
-//typedef struct Game_T game_t;
+	Player_t Players[2];
+} Game_T;
+
+typedef struct
+{
+	char PlayValue;
+	int Round;
+	int Time;
+	char *Comand;
+	char *Play;
+} Player_Interface;
+
+// JOGADA -> J - COMANDO LINHA COLUNA JOGADA
+// COMANDOS -> A, B, C, D -> COMANDOS PARA O CHAT, PARA SAIR DA JOGADA, BLA

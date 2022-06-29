@@ -4,13 +4,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
-#define PLAYER_01 'X'
-#define PLAYER_02 'O'
-#define NO_WINNER 'N'
-#define WINNER 'W'
+#include "./tictactoe.h"
 
-// void window
+#define PLAYER_1 'O'
+#define PLAYER_2 'X'
 
 void initingNcurses()
 {
@@ -22,7 +21,7 @@ void initingNcurses()
 
 void drawingBoard()
 {
-    int column, line, verticalLineX = 0;
+    int column, line;
 
     for (column = 0; column <= 6; column++)
     {
@@ -58,26 +57,56 @@ void close(WINDOW *board)
 
 void initingBoard(int *boardInfo)
 {
+}
 
-    int i;
+void playerRound(unsigned long PlayerID01, unsigned long PlayerID02)
+{
+}
 
-    for (i = 0; i <= 8; i++)
-    {
-        boardInfo[i] = i + 2;
-    }
+void displayOptions()
+{
+    char line[1], column[1];
+    printw("\n\nDigite a sua jogada \n");
+    printw("Linha:\n");
+    getstr(line);
+    printw("Coluna:\n");
+    getstr(column);
+    printw("Sua jogada foi: %c %c \n \n", line, column);
+}
+
+void playerLogin()
+{
+    Game_T game;
+
+    unsigned long currentPlayer;
+
+    game.Players[0].Name = "Guilherme";
+    game.Players[0].PlayerID = 1;
+
+    currentPlayer = game.Players[0].PlayerID;
+
+    game.Players[1].Name = "Carol";
+    game.Players[1].PlayerID = 2;
+
+    displayOptions();
 }
 
 int main()
 {
+    Player_Interface playerInterface;
+
+    // player 01 - receba sempre a O
+    // player 02 - receba sempre o X
+    // colocar comando para marcar o valor na posição do jogo
 
     start_color();
     init_pair(1, COLOR_RED, COLOR_BLUE);
 
     int boardInfo[9];
     initingNcurses();
+    playerLogin();
     drawingBoard();
     initingBoard(boardInfo);
 
-    close(boardInfo);
     return 0;
 }
